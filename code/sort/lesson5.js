@@ -19,6 +19,6 @@
 //   }
 //   return quickSort(arr)
 // }
-export default () => {
+export default (arr) => {
 
 }
