@@ -13,7 +13,18 @@ export default(str, words) => {
     }
   }
   range([], words)
-  return result.map(item => {
-    return str.indexOf(item.join(''))
-  }).filter(item => item !== -1).sort()
+  // 修改输出
+  const _result = []
+  result.forEach(item => {
+    const sub = item.join('')
+    for (let i = 0, idx; idx !== -1; i++) {
+      if (str.length - idx - 1 < sub.length) {
+        return
+      }
+      idx = str.indexOf(sub, i)
+      i = idx + 1
+      _result.push(idx)
+    }
+  })
+  return _result.filter(item => item !== -1).sort((a, b) => a - b)
 }
